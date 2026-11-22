@@ -25,7 +25,7 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1795224810,
+        "lastModified": 1795259076,
         "narHash": "sha256-VWuPWde1tAAD0Tu4KA2ZfhW6nhk9x/tkbv0hi47v1R8=",
         "owner": "nix-community",
         "repo": "nix-jetbrains-plugins",
