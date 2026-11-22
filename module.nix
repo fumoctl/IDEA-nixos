@@ -7,6 +7,7 @@
 }:
 let
   cfg = config.programs.intellij;
+  isOss = lib.hasSuffix "-oss" cfg.package.pname;
 
   baseNixLdLibraries = with pkgs; [
     stdenv.cc.cc.lib
@@ -141,7 +142,7 @@ let
       wrapperArgs = [ ''--set-default GOROOT "${pkgs.go}/share/go"'' ];
     };
     python = {
-      plugins = [ "PythonCore" ] ++ lib.optionals (cfg.package.pname != "idea-oss") [ "Pythonid" ];
+      plugins = [ "PythonCore" ] ++ lib.optionals (!isOss) [ "Pythonid" ];
       packages = [
         (pkgs.python3.withPackages (ps: [
           ps.pip
@@ -197,7 +198,7 @@ let
       wrapperArgs = [ ];
     };
     nodejs = {
-      plugins = lib.optionals (cfg.package.pname != "idea-oss") [ "intellij.javascript.bun" ];
+      plugins = lib.optionals (!isOss) [ "intellij.javascript.bun" ];
       packages = [
         pkgs.nodejs
         pkgs.bun
