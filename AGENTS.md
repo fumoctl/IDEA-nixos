@@ -15,6 +15,7 @@ Agents here **MUST always activate and follow `ponytail` (`full` default)** unle
 
 ```text
 IDEA-nixos/
+├── .github/workflows/ # check.yml (CI) & update.yml (weekly flake.lock PR + auto-merge)
 ├── flake.nix    # Inputs (nixpkgs, nix-jetbrains-plugins), module exports, checks.<system>.module-eval
 ├── flake.lock   # Locked GitHub inputs (never commit local path:/nix/store overrides)
 ├── module.nix   # Parameterized module factory ({ nix-jetbrains-plugins, isNixOS }:)
